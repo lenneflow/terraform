@@ -34,7 +34,7 @@ terraform {
 
 # AWS Provider Configuration
 provider "aws" {
-  region = "us-west-2"
+  region = var.region
 }
 
 # Kubernetes Provider
