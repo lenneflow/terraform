@@ -1,7 +1,7 @@
 variable "region" {
   description = "AWS region"
   type        = string
-  default     = "us-east-2"
+  default     = "us-east-1"
 }
 
 variable "cluster_name" {
@@ -9,38 +9,26 @@ variable "cluster_name" {
   type        = string
 }
 
-variable "cluster_version" {
-  description = "Cluster version"
+variable "function_name" {
+  description = "Function Name"
   type        = string
-  default     = "1.31"
+  default     = "function-java"
 }
 
-variable "node_group_desired_size" {
-  description = "node_group_desired_size"
+variable "image_name" {
+  description = "Image Name"
   type        = string
-  default     = "1"
+  default     = "lenneflow/function-java"
 }
 
-variable "node_group_min_size" {
-  description = "node_group_min_size"
+variable "container_port" {
+  description = "host_port"
   type        = string
-  default     = "1"
+  default     = "8080"
 }
 
-variable "node_group_max_size" {
-  description = "node_group_max_size"
+variable "host_port" {
+  description = "assigned_port"
   type        = string
-  default     = "2"
-}
-
-variable "instance_type" {
-  description = "instance_type"
-  type        = string
-  default     = "t2.medium"
-}
-
-variable "ami_type" {
-  description = "ami_type"
-  type        = string
-  default     = "AL2_x86_64"
+  default     = "47000"
 }
