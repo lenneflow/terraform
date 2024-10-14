@@ -44,3 +44,13 @@ variable "ami_type" {
   type        = string
   default     = "AL2_x86_64"
 }
+
+variable "aws_access_key" {
+  description = "aws_access_key"
+  type        = string
+}
+
+variable "aws_secret_key" {
+  description = "aws_secret_key"
+  type        = string
+}
