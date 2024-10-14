@@ -1,4 +1,3 @@
-# NGINX Ingress Controller using Helm
 resource "helm_release" "nginx_ingress" {
   name       = "nginx-ingress"
   repository = "https://kubernetes.github.io/ingress-nginx"
@@ -7,7 +6,7 @@ resource "helm_release" "nginx_ingress" {
   namespace  = "kube-system"
 
   values = [
-    file("${path.module}/values.yaml")  # Define your custom values for the ingress here.
+    file("${path.module}/values.yaml")
   ]
 
   depends_on = [ module.eks ]
