@@ -43,14 +43,14 @@ provider "aws" {
 Retrieve information about an EKS Cluster.
 */
 data "aws_eks_cluster" "cluster" {
-  name = module.eks.cluster_id
+  name = module.eks.cluster_name
 }
 
 /*
 Get an authentication token to communicate with an EKS cluster.
 */
 data "aws_eks_cluster_auth" "cluster" {
-  name = module.eks.cluster_id
+  name = module.eks.cluster_name
 }
 
 # Kubernetes Provider
