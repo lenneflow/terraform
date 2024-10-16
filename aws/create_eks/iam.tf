@@ -1,6 +1,6 @@
 # IAM Role for EKS Ingress Controller
 resource "aws_iam_role" "eks_ingress_controller" {
-  name = "eks-ingress-controller"
+  name = "${var.cluster_name}-ingress-controller"
   
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
