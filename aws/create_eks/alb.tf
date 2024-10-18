@@ -18,7 +18,7 @@ module "aws_load_balancer_controller_irsa_role" {
 
 # terraform/helm-load-balancer-controller.tf
 resource "helm_release" "aws_load_balancer_controller" {
-  name = "${var.cluster_name}-alb-controller"
+  name = lower("${var.cluster_name}-alb-controller")
 
   repository = "https://aws.github.io/eks-charts"
   chart      = "aws-load-balancer-controller"
@@ -37,7 +37,7 @@ resource "helm_release" "aws_load_balancer_controller" {
 
   set {
     name  = "serviceAccount.name"
-    value = "${var.cluster_name}-alb-controller"
+    value = lower("${var.cluster_name}-alb-controller")
   }
 
   set {

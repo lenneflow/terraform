@@ -25,7 +25,7 @@ module "eks" {
 
   eks_managed_node_groups = {
     one = {
-      name = "node-group-${var.cluster_name}"
+      name = lower("node-group-${var.cluster_name}")
 
       instance_types = [var.instance_type]
 

@@ -6,7 +6,7 @@ resource "helm_release" "nginx_ingress" {
   namespace  = "kube-system"
 
   values = [
-    file("${path.module}/values.yaml")
+    file("${path.module}/ingress.yaml")
   ]
 
   depends_on = [ module.eks ]
