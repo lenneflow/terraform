@@ -11,3 +11,10 @@ resource "helm_release" "nginx_ingress" {
 
   depends_on = [ module.eks ]
 }
+
+data "kubernetes_service" "ingress-nginx" {
+  metadata {
+    name = "ingress-nginx-controller"
+    namespace = helm_release.ingress-nginx.metadata[0].namespace
+  }
+}

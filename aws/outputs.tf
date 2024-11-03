@@ -22,3 +22,7 @@ output "cluster_name" {
   description = "Kubernetes Cluster Name"
   value       = module.eks.cluster_name
 }
+
+output "load-balancer-hostname" {
+  value = data.kubernetes_service.ingress-nginx.status[0].load_balancer[0].ingress[0].hostname
+}
