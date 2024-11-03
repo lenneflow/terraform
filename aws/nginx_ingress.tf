@@ -14,7 +14,7 @@ resource "helm_release" "nginx_ingress" {
 
 data "kubernetes_service" "nginx_ingress" {
   metadata {
-    name = "ingress-nginx-controller"
+    name = "nginx-ingress-ingress-nginx-controller"
     namespace = helm_release.nginx_ingress.metadata[0].namespace
   }
 }
