@@ -30,3 +30,17 @@ module "eks" {
   }
 }
 
+resource "aws_autoscaling_policy" "scale_policy" {
+  name                   = "scale-policy-${module.eks.cluster_name}"
+  policy_type            = "TargetTrackingScaling"
+  autoscaling_group_name = module.eks.eks_managed_node_groups["one"].node_group_resources[0].autoscaling_groups[0].name
+  
+  target_tracking_configuration {
+    predefined_metric_specification {
+      predefined_metric_type = "ASGAverageCPUUtilization"
+    }
+
+    target_value = 50.0
+  }
+}
+
